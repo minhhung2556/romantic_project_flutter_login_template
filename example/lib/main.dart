@@ -8,8 +8,17 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
+enum _State {
+  signIn,
+  signUp,
+  forgot,
+  confirm,
+  create,
+}
+
 class _MyAppState extends State<MyApp> {
   late LoginTemplateStyle style;
+  _State state = _State.signIn;
 
   @override
   void initState() {
@@ -27,21 +36,21 @@ class _MyAppState extends State<MyApp> {
     var signInPage = LoginTemplateSignInPage(
       logo: logo,
       style: style,
-      onPressedSignIn: () {
-        //TODO
-      },
+      onPressedSignIn: () {},
       onPressedSignUp: () {
-        //TODO
+        setState(() {
+          state = _State.signUp;
+        });
       },
       onPressedForgot: () {
-        //TODO
+        setState(() {
+          state = _State.forgot;
+        });
       },
       socialButtons: [
         LoginTemplateSocialButton(
           text: 'Apple',
-          onPressed: () {
-            //TODO
-          },
+          onPressed: () {},
           icon: Icon(
             Icons.account_circle_sharp,
             size: 16,
@@ -51,9 +60,7 @@ class _MyAppState extends State<MyApp> {
         ),
         LoginTemplateSocialButton(
           text: 'Google',
-          onPressed: () {
-            //TODO
-          },
+          onPressed: () {},
           icon: Icon(
             Icons.android,
             size: 16,
@@ -64,12 +71,8 @@ class _MyAppState extends State<MyApp> {
       ],
       term: LoginTemplateTerm(
         style: style,
-        onPressedTermOfService: () {
-          //TODO
-        },
-        onPressedPrivacyPolicy: () {
-          //TODO
-        },
+        onPressedTermOfService: () {},
+        onPressedPrivacyPolicy: () {},
       ),
     );
 
@@ -77,19 +80,19 @@ class _MyAppState extends State<MyApp> {
       logo: logo,
       style: style,
       onPressedSignIn: () {
-        //TODO
+        setState(() {
+          state = _State.signIn;
+        });
       },
       onPressedSignUp: () {
-        //TODO
+        setState(() {
+          state = _State.confirm;
+        });
       },
       term: LoginTemplateTerm(
         style: style,
-        onPressedTermOfService: () {
-          //TODO
-        },
-        onPressedPrivacyPolicy: () {
-          //TODO
-        },
+        onPressedTermOfService: () {},
+        onPressedPrivacyPolicy: () {},
       ),
     );
 
@@ -97,13 +100,19 @@ class _MyAppState extends State<MyApp> {
         logo: logo,
         style: style,
         onPressedNext: () {
-          //TODO
+          setState(() {
+            state = _State.confirm;
+          });
         });
 
     var confirmCodePage = LoginTemplateConfirmCodePage(
       logo: logo,
       style: style,
-      onPressedNext: () {},
+      onPressedNext: () {
+        setState(() {
+          state = _State.create;
+        });
+      },
       onPressedResend: () {},
     );
 
@@ -112,8 +121,32 @@ class _MyAppState extends State<MyApp> {
       style: style,
       errorTextPassword:
           'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.',
-      onPressedNext: () {},
+      onPressedNext: () {
+        setState(() {
+          state = _State.signIn;
+        });
+      },
     );
+
+    Widget body;
+    switch (state) {
+      case _State.signUp:
+        body = signUpPage;
+        break;
+      case _State.forgot:
+        body = forgotPasswordPage;
+        break;
+      case _State.confirm:
+        body = confirmCodePage;
+        break;
+      case _State.create:
+        body = createPassword;
+        break;
+      case _State.signIn:
+      default:
+        body = signInPage;
+        break;
+    }
 
     return MaterialApp(
       title: 'Example',
@@ -126,15 +159,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('Flutter Login Template'),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              signInPage,
-              signUpPage,
-              forgotPasswordPage,
-              confirmCodePage,
-              createPassword,
-            ],
-          ),
+          child: body,
         ),
       ),
     );
