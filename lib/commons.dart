@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-const _kColorPrimary = Colors.blue;
-const _kColorPrimaryDark = Colors.indigo;
-const _kColorPrimaryLight = Colors.lightBlueAccent;
+const _kColorPrimary = Color(0xffffab00);
+const _kColorPrimaryDark = Color(0xffc67c00);
+const _kColorPrimaryLight = Color(0xffffdd4b);
 const _kColorButtonOverlay = Colors.black12;
 const _kColorTextDark = Colors.black87;
 const _kColorTextLight = Colors.white;
