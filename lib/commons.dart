@@ -12,6 +12,7 @@ const _kColorTextMedium = Colors.black54;
 const _kButtonMinHeight = 45.0;
 const _kFontSizeNormal = 13.0;
 const _kFontSizeMedium = 11.0;
+const _kFontSizeSmall = 10.0;
 const _kBorderRadius = 4.0;
 
 class LoginTemplateStyle {
@@ -145,7 +146,7 @@ class LoginTemplateStyle {
             color: _kColorTextMedium,
           ),
           textFieldErrorTextStyle: const TextStyle(
-            fontSize: _kFontSizeMedium,
+            fontSize: _kFontSizeSmall,
             color: Colors.redAccent,
           ),
           textFieldPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
