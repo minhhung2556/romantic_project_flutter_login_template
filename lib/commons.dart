@@ -151,6 +151,147 @@ class LoginTemplateStyle {
           textFieldPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         );
   }
+
+  static LoginTemplateStyle only(
+    EdgeInsets? screenPadding,
+    double? verticalSpacingBetweenComponents,
+    double? verticalSpacingBetweenSubComponents,
+    double? verticalSpacingBetweenGroup,
+    TextStyle? inlineButtonTextStyle,
+    TextStyle? buttonTextStyle,
+    TextStyle? messageTextStyle,
+    TextStyle? socialButtonTextStyle,
+    BoxShadow? itemShadow,
+    TextStyle? textFieldTextStyle,
+    TextStyle? textFieldHintTextStyle,
+    TextStyle? textFieldErrorTextStyle,
+    ButtonStyle? inlineButtonStyle,
+    Color? primary,
+    Color? primaryDark,
+    Color? primaryLight,
+    Color? buttonOverlay,
+    ButtonStyle? buttonStyle,
+    ButtonStyle? socialButtonStyle,
+    EdgeInsets? textFieldPadding,
+  ) {
+    return resolve(null).copyWith(
+      screenPadding: screenPadding,
+      verticalSpacingBetweenComponents: verticalSpacingBetweenComponents,
+      verticalSpacingBetweenSubComponents: verticalSpacingBetweenSubComponents,
+      verticalSpacingBetweenGroup: verticalSpacingBetweenGroup,
+      inlineButtonTextStyle: inlineButtonTextStyle,
+      buttonTextStyle: buttonTextStyle,
+      messageTextStyle: messageTextStyle,
+      socialButtonTextStyle: socialButtonTextStyle,
+      itemShadow: itemShadow,
+      textFieldTextStyle: textFieldTextStyle,
+      textFieldHintTextStyle: textFieldHintTextStyle,
+      textFieldErrorTextStyle: textFieldErrorTextStyle,
+      inlineButtonStyle: inlineButtonStyle,
+      primary: primary,
+      primaryDark: primaryDark,
+      primaryLight: primaryLight,
+      buttonOverlay: buttonOverlay,
+      buttonStyle: buttonStyle,
+      socialButtonStyle: socialButtonStyle,
+      textFieldPadding: textFieldPadding,
+    );
+  }
+
+  LoginTemplateStyle copyWith({
+    EdgeInsets? screenPadding,
+    double? verticalSpacingBetweenComponents,
+    double? verticalSpacingBetweenSubComponents,
+    double? verticalSpacingBetweenGroup,
+    TextStyle? inlineButtonTextStyle,
+    TextStyle? buttonTextStyle,
+    TextStyle? messageTextStyle,
+    TextStyle? socialButtonTextStyle,
+    BoxShadow? itemShadow,
+    TextStyle? textFieldTextStyle,
+    TextStyle? textFieldHintTextStyle,
+    TextStyle? textFieldErrorTextStyle,
+    ButtonStyle? inlineButtonStyle,
+    Color? primary,
+    Color? primaryDark,
+    Color? primaryLight,
+    Color? buttonOverlay,
+    ButtonStyle? buttonStyle,
+    ButtonStyle? socialButtonStyle,
+    EdgeInsets? textFieldPadding,
+  }) {
+    if ((screenPadding == null ||
+            identical(screenPadding, this.screenPadding)) &&
+        (verticalSpacingBetweenComponents == null ||
+            identical(verticalSpacingBetweenComponents,
+                this.verticalSpacingBetweenComponents)) &&
+        (verticalSpacingBetweenSubComponents == null ||
+            identical(verticalSpacingBetweenSubComponents,
+                this.verticalSpacingBetweenSubComponents)) &&
+        (verticalSpacingBetweenGroup == null ||
+            identical(verticalSpacingBetweenGroup,
+                this.verticalSpacingBetweenGroup)) &&
+        (inlineButtonTextStyle == null ||
+            identical(inlineButtonTextStyle, this.inlineButtonTextStyle)) &&
+        (buttonTextStyle == null ||
+            identical(buttonTextStyle, this.buttonTextStyle)) &&
+        (messageTextStyle == null ||
+            identical(messageTextStyle, this.messageTextStyle)) &&
+        (socialButtonTextStyle == null ||
+            identical(socialButtonTextStyle, this.socialButtonTextStyle)) &&
+        (itemShadow == null || identical(itemShadow, this.itemShadow)) &&
+        (textFieldTextStyle == null ||
+            identical(textFieldTextStyle, this.textFieldTextStyle)) &&
+        (textFieldHintTextStyle == null ||
+            identical(textFieldHintTextStyle, this.textFieldHintTextStyle)) &&
+        (textFieldErrorTextStyle == null ||
+            identical(textFieldErrorTextStyle, this.textFieldErrorTextStyle)) &&
+        (inlineButtonStyle == null ||
+            identical(inlineButtonStyle, this.inlineButtonStyle)) &&
+        (primary == null || identical(primary, this.primary)) &&
+        (primaryDark == null || identical(primaryDark, this.primaryDark)) &&
+        (primaryLight == null || identical(primaryLight, this.primaryLight)) &&
+        (buttonOverlay == null ||
+            identical(buttonOverlay, this.buttonOverlay)) &&
+        (buttonStyle == null || identical(buttonStyle, this.buttonStyle)) &&
+        (socialButtonStyle == null ||
+            identical(socialButtonStyle, this.socialButtonStyle)) &&
+        (textFieldPadding == null ||
+            identical(textFieldPadding, this.textFieldPadding))) {
+      return this;
+    }
+
+    return new LoginTemplateStyle(
+      screenPadding: screenPadding ?? this.screenPadding,
+      verticalSpacingBetweenComponents: verticalSpacingBetweenComponents ??
+          this.verticalSpacingBetweenComponents,
+      verticalSpacingBetweenSubComponents:
+          verticalSpacingBetweenSubComponents ??
+              this.verticalSpacingBetweenSubComponents,
+      verticalSpacingBetweenGroup:
+          verticalSpacingBetweenGroup ?? this.verticalSpacingBetweenGroup,
+      inlineButtonTextStyle:
+          inlineButtonTextStyle ?? this.inlineButtonTextStyle,
+      buttonTextStyle: buttonTextStyle ?? this.buttonTextStyle,
+      messageTextStyle: messageTextStyle ?? this.messageTextStyle,
+      socialButtonTextStyle:
+          socialButtonTextStyle ?? this.socialButtonTextStyle,
+      itemShadow: itemShadow ?? this.itemShadow,
+      textFieldTextStyle: textFieldTextStyle ?? this.textFieldTextStyle,
+      textFieldHintTextStyle:
+          textFieldHintTextStyle ?? this.textFieldHintTextStyle,
+      textFieldErrorTextStyle:
+          textFieldErrorTextStyle ?? this.textFieldErrorTextStyle,
+      inlineButtonStyle: inlineButtonStyle ?? this.inlineButtonStyle,
+      primary: primary ?? this.primary,
+      primaryDark: primaryDark ?? this.primaryDark,
+      primaryLight: primaryLight ?? this.primaryLight,
+      buttonOverlay: buttonOverlay ?? this.buttonOverlay,
+      buttonStyle: buttonStyle ?? this.buttonStyle,
+      socialButtonStyle: socialButtonStyle ?? this.socialButtonStyle,
+      textFieldPadding: textFieldPadding ?? this.textFieldPadding,
+    );
+  }
 }
 
 class LoginTemplateInlineButton extends StatelessWidget {
@@ -286,41 +427,57 @@ class LoginTemplateTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: style.textFieldPadding,
-      decoration: ShapeDecoration(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius:
-              (style.buttonStyle.shape?.resolve(MaterialState.values.toSet())
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          padding: style.textFieldPadding,
+          decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: (style.buttonStyle.shape
+                          ?.resolve(MaterialState.values.toSet())
                       as RoundedRectangleBorder)
                   .borderRadius,
+            ),
+            shadows: [
+              style.itemShadow,
+            ],
+          ),
+          child: TextField(
+            textAlign: TextAlign.left,
+            textInputAction: textInputAction,
+            keyboardType: keyboardType,
+            maxLines: 1,
+            style: style.textFieldTextStyle,
+            obscureText: keyboardType == TextInputType.visiblePassword,
+            cursorColor: style.primary,
+            inputFormatters: inputFormatters,
+            onTap: onTap,
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: style.textFieldHintTextStyle,
+              hintMaxLines: 1,
+              border: InputBorder.none,
+            ),
+          ),
         ),
-        shadows: [
-          style.itemShadow,
-        ],
-      ),
-      child: TextField(
-        textAlign: TextAlign.left,
-        textInputAction: textInputAction,
-        keyboardType: keyboardType,
-        maxLines: 1,
-        style: style.textFieldTextStyle,
-        obscureText: keyboardType == TextInputType.visiblePassword,
-        cursorColor: style.primary,
-        inputFormatters: inputFormatters,
-        onTap: onTap,
-        controller: controller,
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: style.textFieldHintTextStyle,
-          hintMaxLines: 1,
-          errorText: errorText,
-          errorStyle: style.textFieldErrorTextStyle,
-          errorMaxLines: 2,
-          border: InputBorder.none,
-        ),
-      ),
+        if (errorText != null)
+          Padding(
+            padding: EdgeInsets.only(
+              top: style.verticalSpacingBetweenSubComponents,
+              left: style.verticalSpacingBetweenSubComponents,
+              right: style.verticalSpacingBetweenSubComponents,
+            ),
+            child: Text(
+              errorText!,
+              style: style.textFieldErrorTextStyle,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          )
+      ],
     );
   }
 }
