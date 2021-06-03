@@ -664,7 +664,7 @@ class LoginTemplateTextField extends StatelessWidget {
   }
 }
 
-/// LoginTemplateTerm is used for showing the product term of service and privacy policy message.
+/// LoginTemplateTerm is used for showing the product term of service and privacy policy message. It is placed at the bottom on each page.
 class LoginTemplateTerm extends StatelessWidget {
   /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
