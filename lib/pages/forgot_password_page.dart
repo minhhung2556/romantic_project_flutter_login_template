@@ -2,22 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_template/commons.dart';
 
+/// LoginTemplateForgotPasswordPage is used to show a page, lets the users could create their password when they forgot it.
 class LoginTemplateForgotPasswordPage extends StatelessWidget {
+  /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
-  final String buttonTextNext;
-  final Function() onPressedNext;
+
+  /// Your product logo
   final Widget logo;
+
+  /// The message is used to explain to users.
   final String textMessage;
 
-  /// user textField
+  /// The text of button to go to next step.
+  final String buttonTextNext;
+
+  /// The action of button to go to next step.
+  final Function() onPressedNext;
+
+  /// Use for the TextField lets the users input their email or phone number to confirm for creating new password. See also [LoginTemplateTextField]
   final TextInputAction textInputActionUser;
+
+  /// Use for the TextField lets the users input their email or phone number to confirm for creating new password. See also [LoginTemplateTextField]
   final TextInputType keyboardTypeUser;
+
+  /// Use for the TextField lets the users input their email or phone number to confirm for creating new password. See also [LoginTemplateTextField]
   final String hintTextUser;
+
+  /// Use for the TextField lets the users input their email or phone number to confirm for creating new password. See also [LoginTemplateTextField]
   final String? errorTextUser;
+
+  /// Use for the TextField lets the users input their email or phone number to confirm for creating new password. See also [LoginTemplateTextField]
   final List<TextInputFormatter>? inputFormattersUser;
+
+  /// Use for the TextField lets the users input their email or phone number to confirm for creating new password. See also [LoginTemplateTextField]
   final Function()? onTapUser;
+
+  /// Use for the TextField lets the users input their email or phone number to confirm for creating new password. See also [LoginTemplateTextField]
   final TextEditingController? controllerUser;
 
+  /// Constructor
   const LoginTemplateForgotPasswordPage({
     Key? key,
     required this.logo,
