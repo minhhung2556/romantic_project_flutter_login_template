@@ -2,35 +2,72 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_template/commons.dart';
 
+/// LoginTemplateCreatePasswordPage is used to show a page, lets users can input the password for their new account.
 class LoginTemplateCreatePasswordPage extends StatelessWidget {
+  /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
+
+  /// Your product logo
   final Widget logo;
 
-  final String buttonTextNext;
-  final Function() onPressedNext;
-
-  /// password textField
-  final TextInputAction textInputActionPassword;
-  final TextInputType keyboardTypePassword;
-  final String hintTextPassword;
-  final String? errorTextPassword;
-  final List<TextInputFormatter>? inputFormattersPassword;
-  final Function()? onTapPassword;
-  final TextEditingController? controllerPassword;
-  final String textMessagePasswordRequirements;
-
-  /// confirm password textField
-  final TextInputAction textInputActionConfirmPassword;
-  final TextInputType keyboardTypeConfirmPassword;
-  final String hintTextConfirmPassword;
-  final String? errorTextConfirmPassword;
-  final List<TextInputFormatter>? inputFormattersConfirmPassword;
-  final Function()? onTapConfirmPassword;
-  final TextEditingController? controllerConfirmPassword;
-  final String textMessageConfirmPassword;
-
+  /// The message is used to explain to users.
   final String textMessage;
 
+  /// The text of button to go to next step.
+  final String buttonTextNext;
+
+  /// The action of button to go to next step.
+  final Function() onPressedNext;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final TextInputAction textInputActionPassword;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final TextInputType keyboardTypePassword;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final String hintTextPassword;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final String? errorTextPassword;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final List<TextInputFormatter>? inputFormattersPassword;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final Function()? onTapPassword;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final TextEditingController? controllerPassword;
+
+  /// Use for the TextField lets the users input the new password. See also [LoginTemplateTextField]
+  final String textMessagePasswordRequirements;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final TextInputAction textInputActionConfirmPassword;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final TextInputType keyboardTypeConfirmPassword;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final String hintTextConfirmPassword;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final String? errorTextConfirmPassword;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final List<TextInputFormatter>? inputFormattersConfirmPassword;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final Function()? onTapConfirmPassword;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final TextEditingController? controllerConfirmPassword;
+
+  /// Use for the TextField lets the users input the new password second time to confirm. See also [LoginTemplateTextField]
+  final String textMessageConfirmPassword;
+
+  /// Constructor
   const LoginTemplateCreatePasswordPage({
     Key? key,
     required this.logo,
