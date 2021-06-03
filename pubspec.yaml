@@ -1,8 +1,8 @@
 name: flutter_login_template
-description: A Flutter package to create a Flutter Login Template. It will be useful for your awesome app.
+description: A Flutter package to create set of pages are used for sign in/up workflow. It will be useful for your awesome app.
 version: 1.0.0
 homepage: https://minhhung2556.github.io
-repository: https://github.com/minhhung2556/romantic_project_flutter_horizontal_date_picker.git
+repository: https://github.com/minhhung2556/romantic_project_flutter_login_template.git
 
 environment:
   sdk: '>=2.12.0 <3.0.0'

@@ -1,47 +1,170 @@
 # Flutter Login Template
 
-A Flutter package to create a Horizontal Date Picker. It will be useful for your awesome app.
+A Flutter package to create set of pages are used for sign in/up workflow. It will be useful for your awesome app.
 
-![Imgur](https://imgur.com/download/10HZLPd)
+![Imgur](https://imgur.com/download/) //TODO
 
 ### Example
 
-It supports you can create a DatePicker with flexible count of items from [begin] to [end] by [itemCount].
-By [itemCount] its can split into days, hours, minutes, seconds, that makes you can use this widget in many situations.
+The most design of Mobile Apps are same same now. Based on them, I created this package to help you to cut off many of developing time. Save them to enjoy a coffee or beer :D.
 
 ```dart
-import 'package:flutter_story_list/flutter_story_list.dart';
+import 'package:flutter_login_template/flutter_login_template.dart';
 
-class _MyHomePageState extends State<MyHomePage> {
+enum _State {
+  signIn,
+  signUp,
+  forgot,
+  confirm,
+  create,
+}
+
+class _MyAppState extends State<MyApp> {
+  late LoginTemplateStyle style;
+  _State state = _State.signIn;
+
+  @override
+  void initState() {
+    style = LoginTemplateStyle.defaultTemplate;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Material(
-	    child: Column(
-	      children: [
-	        HorizontalDatePicker(
-                begin: DateTime.now(),
-                end: DateTime.now().add(Duration(days: 40)),
-                selected: DateTime.now(),
-                onSelected: (item) {
-                  //TODO something
-                },
-                itemBuilder: (DateTime itemValue, DateTime? selected) {
-                  var isSelected =
-                      selected?.difference(itemValue).inMilliseconds == 0;
-                  return Text(
-                    itemValue.formatted(pattern: "EEE\ndd/MM\nHH:mm:ss"),
-                    style: TextStyle(
-                      color: isSelected ? Colors.white : Colors.black54,
-                      fontSize: 12,
-                    ),
-                    textAlign: TextAlign.center,
-                  );
-                },
-                itemCount: 40,
-                itemSpacing: 12,
-            ),
-	      ],
-	    ),
+    var logo = Icon(
+      Icons.android_rounded,
+      size: 80,
+    );
+
+    var signInPage = LoginTemplateSignInPage(
+      logo: logo,
+      style: style,
+      onPressedSignIn: () {},
+      onPressedSignUp: () {
+        setState(() {
+          state = _State.signUp;
+        });
+      },
+      onPressedForgot: () {
+        setState(() {
+          state = _State.forgot;
+        });
+      },
+      socialButtons: [
+        LoginTemplateSocialButton(
+          text: 'Apple',
+          onPressed: () {},
+          icon: Icon(
+            Icons.account_circle_sharp,
+            size: 16,
+            color: style.socialButtonTextStyle.color,
+          ),
+          style: style,
+        ),
+        LoginTemplateSocialButton(
+          text: 'Google',
+          onPressed: () {},
+          icon: Icon(
+            Icons.android,
+            size: 16,
+            color: style.socialButtonTextStyle.color,
+          ),
+          style: style,
+        )
+      ],
+      term: LoginTemplateTerm(
+        style: style,
+        onPressedTermOfService: () {},
+        onPressedPrivacyPolicy: () {},
+      ),
+    );
+
+    var signUpPage = LoginTemplateSignUpPage(
+      logo: logo,
+      style: style,
+      onPressedSignIn: () {
+        setState(() {
+          state = _State.signIn;
+        });
+      },
+      onPressedSignUp: () {
+        setState(() {
+          state = _State.confirm;
+        });
+      },
+      term: LoginTemplateTerm(
+        style: style,
+        onPressedTermOfService: () {},
+        onPressedPrivacyPolicy: () {},
+      ),
+    );
+
+    var forgotPasswordPage = LoginTemplateForgotPasswordPage(
+        logo: logo,
+        style: style,
+        onPressedNext: () {
+          setState(() {
+            state = _State.confirm;
+          });
+        });
+
+    var confirmCodePage = LoginTemplateConfirmCodePage(
+      logo: logo,
+      style: style,
+      onPressedNext: () {
+        setState(() {
+          state = _State.create;
+        });
+      },
+      onPressedResend: () {},
+    );
+
+    var createPassword = LoginTemplateCreatePasswordPage(
+      logo: logo,
+      style: style,
+      errorTextPassword:
+          'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.',
+      onPressedNext: () {
+        setState(() {
+          state = _State.signIn;
+        });
+      },
+    );
+
+    Widget body;
+    switch (state) {
+      case _State.signUp:
+        body = signUpPage;
+        break;
+      case _State.forgot:
+        body = forgotPasswordPage;
+        break;
+      case _State.confirm:
+        body = confirmCodePage;
+        break;
+      case _State.create:
+        body = createPassword;
+        break;
+      case _State.signIn:
+      default:
+        body = signInPage;
+        break;
+    }
+
+    return MaterialApp(
+      title: 'Example',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        accentColor: Colors.orangeAccent,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter Login Template'),
+        ),
+        body: SingleChildScrollView(
+          child: body,
+        ),
+      ),
     );
   }
 }
