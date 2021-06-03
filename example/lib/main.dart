@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    style = LoginTemplateStyle.resolve(null);
+    style = LoginTemplateStyle.defaultTemplate;
     super.initState();
   }
 

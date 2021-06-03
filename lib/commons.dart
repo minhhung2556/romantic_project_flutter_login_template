@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_login_template/flutter_login_template.dart';
+import 'package:flutter_login_template/pages/sign_in_page.dart';
 
 const _kColorPrimary = Color(0xffffab00);
 const _kColorPrimaryDark = Color(0xffc67c00);
@@ -15,28 +17,164 @@ const _kFontSizeMedium = 11.0;
 const _kFontSizeSmall = 10.0;
 const _kBorderRadius = 4.0;
 
+/// LoginTemplateStyle defines style for every single components of every pages.
+/// There are [LoginTemplateSignInPage], [LoginTemplateSignUpPage], [LoginTemplateConfirmCodePage], [LoginTemplateForgotPasswordPage], [LoginTemplateCreatePasswordPage]
+/// {@tool snippet}
+/// This is a sample of a [LoginTemplateStyle].
+/// ```dart
+///   LoginTemplateStyle(
+///      primary: Color(0xffffab00),
+///      primaryDark: Color(0xffc67c00),
+///      primaryLight: Color(0xffffdd4b),
+///      buttonOverlay: Colors.black12,
+///      inlineButtonStyle: ButtonStyle(
+///        shape: MaterialStateProperty.all<OutlinedBorder>(
+///            RoundedRectangleBorder(
+///          borderRadius: BorderRadius.circular(_kBorderRadius),
+///        )),
+///        padding: MaterialStateProperty.all<EdgeInsets>(
+///            EdgeInsets.symmetric(horizontal: 2)),
+///        elevation: MaterialStateProperty.all<double>(0),
+///        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+///        backgroundColor:
+///            MaterialStateProperty.all<Color>(Colors.transparent),
+///        overlayColor: MaterialStateProperty.all<Color>(_kColorPrimaryLight),
+///        minimumSize: MaterialStateProperty.all<Size>(Size.zero),
+///      ),
+///      textFieldTextStyle: const TextStyle(
+///        fontSize: _kFontSizeNormal,
+///        color: _kColorTextDark,
+///      ),
+///      screenPadding: const EdgeInsets.all(22),
+///      verticalSpacingBetweenComponents: 10,
+///      verticalSpacingBetweenSubComponents: 6,
+///      verticalSpacingBetweenGroup: 22,
+///      inlineButtonTextStyle: const TextStyle(
+///        color: _kColorTextMedium,
+///        fontSize: _kFontSizeMedium,
+///      ),
+///      buttonTextStyle: const TextStyle(
+///        color: _kColorTextLight,
+///        fontSize: _kFontSizeNormal,
+///      ),
+///      messageTextStyle: const TextStyle(
+///        fontSize: _kFontSizeMedium,
+///        color: Colors.black45,
+///      ),
+///      socialButtonTextStyle: const TextStyle(
+///        color: _kColorTextDark,
+///        fontSize: _kFontSizeNormal,
+///      ),
+///      itemShadow: const BoxShadow(
+///        color: Colors.black12,
+///        offset: Offset(2, 2),
+///        blurRadius: 7,
+///        spreadRadius: 2,
+///      ),
+///      buttonStyle: ButtonStyle(
+///        shape: MaterialStateProperty.all<OutlinedBorder>(
+///            RoundedRectangleBorder(
+///          borderRadius: BorderRadius.circular(_kBorderRadius),
+///        )),
+///        padding: MaterialStateProperty.all<EdgeInsets>(
+///            EdgeInsets.symmetric(vertical: 8, horizontal: 16)),
+///        elevation: MaterialStateProperty.all<double>(7),
+///        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+///        backgroundColor: MaterialStateProperty.all<Color>(_kColorPrimary),
+///        overlayColor:
+///            MaterialStateProperty.all<Color>(_kColorButtonOverlay),
+///        minimumSize: MaterialStateProperty.all<Size>(
+///            Size(_kButtonMinHeight, _kButtonMinHeight)),
+///      ),
+///      socialButtonStyle: ButtonStyle(
+///        shape: MaterialStateProperty.all<OutlinedBorder>(
+///            RoundedRectangleBorder(
+///          borderRadius: BorderRadius.circular(_kBorderRadius),
+///        )),
+///        padding: MaterialStateProperty.all<EdgeInsets>(
+///            EdgeInsets.symmetric(vertical: 8, horizontal: 16)),
+///        elevation: MaterialStateProperty.all<double>(7.0),
+///        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+///        backgroundColor: MaterialStateProperty.all<Color>(_kColorTextLight),
+///        overlayColor:
+///            MaterialStateProperty.all<Color>(_kColorButtonOverlay),
+///        minimumSize: MaterialStateProperty.all<Size>(
+///            Size(_kButtonMinHeight, _kButtonMinHeight)),
+///      ),
+///      textFieldHintTextStyle: const TextStyle(
+///        fontSize: _kFontSizeNormal,
+///        color: _kColorTextMedium,
+///      ),
+///      textFieldErrorTextStyle: const TextStyle(
+///        fontSize: _kFontSizeSmall,
+///        color: Colors.redAccent,
+///      ),
+///      textFieldPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+///    )
+/// ```
+/// {@end-tool}
 class LoginTemplateStyle {
+  /// The padding from the border ơf screen to a page.
   final EdgeInsets screenPadding;
+
+  /// The vertical spacing between each components in a page.
   final double verticalSpacingBetweenComponents;
+
+  /// The vertical spacing between each child components in a component in a page.
   final double verticalSpacingBetweenSubComponents;
+
+  /// The vertical spacing between each group of components in a page.
   final double verticalSpacingBetweenGroup;
+
+  /// The style of Text widget of a button that placed inline a RichText.
   final TextStyle inlineButtonTextStyle;
+
+  /// The style of Text widget of a normal button that placed in a page.
   final TextStyle buttonTextStyle;
+
+  /// The style of Text widget is used to display as a message.
   final TextStyle messageTextStyle;
+
+  /// The style of Text widget of a button that is used for sign in/up by a social account (Ex: Facebook, AppleId,...).
   final TextStyle socialButtonTextStyle;
+
+  /// The shadow is used for the TextField of else.
   final BoxShadow itemShadow;
+
+  /// The style of TextField widget.
   final TextStyle textFieldTextStyle;
+
+  /// The style of hint of TextField widget.
   final TextStyle textFieldHintTextStyle;
+
+  /// The style of error of TextField widget.
   final TextStyle textFieldErrorTextStyle;
+
+  /// The style of ElevatedButton widget that placed inline a RichText.
   final ButtonStyle inlineButtonStyle;
+
+  /// Primary color
   final Color primary;
+
+  /// Primary dark color
   final Color primaryDark;
+
+  /// Primary light color
   final Color primaryLight;
+
+  /// Overlay color when pressed on a button.
   final Color buttonOverlay;
+
+  /// The style of ElevatedButton widget that is used for normal cases.
   final ButtonStyle buttonStyle;
+
+  /// The style of ElevatedButton widget is used for sign in/up by a social account. See also [socialButtonTextStyle]
   final ButtonStyle socialButtonStyle;
+
+  /// The padding of a TextField.
   final EdgeInsets textFieldPadding;
 
+  /// Constructor
   LoginTemplateStyle({
     required this.textFieldHintTextStyle,
     required this.textFieldErrorTextStyle,
@@ -60,7 +198,7 @@ class LoginTemplateStyle {
     required this.textFieldPadding,
   });
 
-  static LoginTemplateStyle resolve(LoginTemplateStyle? style) {
+  static LoginTemplateStyle _resolve(LoginTemplateStyle? style) {
     return style ??
         LoginTemplateStyle(
           primary: _kColorPrimary,
@@ -153,6 +291,10 @@ class LoginTemplateStyle {
         );
   }
 
+  /// Create a default style.
+  static final LoginTemplateStyle defaultTemplate = _resolve(null);
+
+  /// Create your own style that only change some child styles.
   static LoginTemplateStyle only(
     EdgeInsets? screenPadding,
     double? verticalSpacingBetweenComponents,
@@ -175,7 +317,7 @@ class LoginTemplateStyle {
     ButtonStyle? socialButtonStyle,
     EdgeInsets? textFieldPadding,
   ) {
-    return resolve(null).copyWith(
+    return defaultTemplate.copyWith(
       screenPadding: screenPadding,
       verticalSpacingBetweenComponents: verticalSpacingBetweenComponents,
       verticalSpacingBetweenSubComponents: verticalSpacingBetweenSubComponents,
@@ -199,6 +341,7 @@ class LoginTemplateStyle {
     );
   }
 
+  /// Create a new instance using copy this instance
   LoginTemplateStyle copyWith({
     EdgeInsets? screenPadding,
     double? verticalSpacingBetweenComponents,
@@ -295,11 +438,18 @@ class LoginTemplateStyle {
   }
 }
 
+/// LoginTemplateInlineButton is placed inline a RichText.
 class LoginTemplateInlineButton extends StatelessWidget {
+  /// The button text.
   final String text;
+
+  /// The action.
   final Function()? onPressed;
+
+  /// The [LoginTemplateStyle] defines this widget style.
   final LoginTemplateStyle style;
 
+  /// Constructor
   const LoginTemplateInlineButton({
     Key? key,
     required this.text,
@@ -325,11 +475,18 @@ class LoginTemplateInlineButton extends StatelessWidget {
   }
 }
 
+/// LoginTemplateButton is used for normal case.
 class LoginTemplateButton extends StatelessWidget {
+  /// The button text.
   final String text;
+
+  /// The action.
   final Function()? onPressed;
+
+  /// The [LoginTemplateStyle] defines this widget style.
   final LoginTemplateStyle style;
 
+  /// Constructor
   const LoginTemplateButton({
     Key? key,
     required this.text,
@@ -357,11 +514,19 @@ class LoginTemplateButton extends StatelessWidget {
   }
 }
 
+/// LoginTemplateSocialButton is used for sign in/up by a social account.
 class LoginTemplateSocialButton extends StatelessWidget {
+  /// The button text.
   final String text;
+
+  /// The action.
   final Function()? onPressed;
-  final Widget icon;
+
+  /// The [LoginTemplateStyle] defines this widget style.
   final LoginTemplateStyle style;
+
+  /// The icon is placed at the left side of this button.
+  final Widget icon;
 
   const LoginTemplateSocialButton({
     Key? key,
@@ -404,14 +569,30 @@ class LoginTemplateSocialButton extends StatelessWidget {
   }
 }
 
+/// LoginTemplateTextField is used for inputting user information, such as: email, password, name, ...
 class LoginTemplateTextField extends StatelessWidget {
+  /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
+
+  /// See [TextInputAction]
   final TextInputAction textInputAction;
+
+  /// See [TextInputType]
   final TextInputType keyboardType;
+
+  /// See hintText in [InputDecoration]
   final String? hintText;
+
+  /// See errorText in [InputDecoration]
   final String? errorText;
+
+  /// See [TextInputFormatter]
   final List<TextInputFormatter>? inputFormatters;
+
+  /// See onTap in [TextField]
   final Function()? onTap;
+
+  /// See controller in [TextEditingController]
   final TextEditingController? controller;
 
   const LoginTemplateTextField({
@@ -483,12 +664,24 @@ class LoginTemplateTextField extends StatelessWidget {
   }
 }
 
+/// LoginTemplateTerm is used for showing the product term of service and privacy policy message.
 class LoginTemplateTerm extends StatelessWidget {
+  /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
+
+  /// The action to navigate to your TermOfService screen.
   final Function() onPressedTermOfService;
+
+  /// The action to navigate to your PrivacyPolicy screen.
   final Function() onPressedPrivacyPolicy;
+
+  /// The message.
   final String text;
+
+  /// Text in Term Of Service button.
   final String termOfServiceButtonText;
+
+  /// Text in Privacy Policy button.
   final String privacyPolicyButtonText;
 
   const LoginTemplateTerm({
