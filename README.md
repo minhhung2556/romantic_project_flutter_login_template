@@ -2,9 +2,9 @@
 
 A Flutter package to create set of pages are used for sign in/up workflow. It will be useful for your awesome app.
 
-![Imgur](https://imgur.com/download/) //TODO
+![Imgur](https://imgur.com/download/rB0hQ3g)
 
-### Example
+## Example
 
 The most design of Mobile Apps are same same now. Based on them, I created this package to help you to cut off many of developing time. Save them to enjoy a coffee or beer :D.
 
@@ -170,7 +170,7 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
-### Development environment
+## Development environment
 
 ```
 [✓] Flutter (Channel stable, 2.0.5, on macOS 11.2.3 20D91 darwin-x64, locale en-VN)
@@ -201,3 +201,12 @@ class _MyAppState extends State<MyApp> {
       🔨 https://plugins.jetbrains.com/plugin/6351-dart
     • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6915495)
 ```
+
+## TODO
+- [ ] Animations.
+- [ ] Flat design.
+- [ ] Neumorphism design.
+- [ ] Pin code page.
+- [ ] Biometric sign in option.
+- [ ] Biometric configuration page.
+- [ ] User profile page.
