@@ -1,35 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_template/commons.dart';
+import 'package:flutter_login_template/flutter_login_template.dart';
 
+/// LoginTemplateSignUpPage is used for sign up page.
 class LoginTemplateSignUpPage extends StatelessWidget {
+  /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
+
+  /// The action of SignUp button.
   final Function() onPressedSignUp;
+
+  /// The action of SignIn button to navigate to [LoginTemplateSignInPage]
   final Function() onPressedSignIn;
+
+  /// Your product logo
   final Widget logo;
 
-  /// user textField
+  /// The text of SignIn button.
+  final String buttonTextSignIn;
+
+  /// The text of SignUp button.
+  final String buttonTextSignUp;
+
+  /// See [LoginTemplateTerm]
+  final LoginTemplateTerm? term;
+
+  /// The text of SignIn button.
+  final String textMessageAlreadyHaveAccount;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final TextInputAction textInputActionUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final TextInputType keyboardTypeUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final String hintTextUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final String? errorTextUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final List<TextInputFormatter>? inputFormattersUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final Function()? onTapUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final TextEditingController? controllerUser;
 
-  /// full name textField
+  /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
   final TextInputAction textInputActionFullName;
-  final TextInputType keyboardTypeFullName;
-  final String hintTextFullName;
-  final String? errorTextFullName;
-  final List<TextInputFormatter>? inputFormattersFullName;
-  final Function()? onTapFullName;
-  final TextEditingController? controllerFullName;
 
-  final String buttonTextSignIn;
-  final String buttonTextSignUp;
-  final LoginTemplateTerm? term;
-  final String textMessageAlreadyHaveAccount;
+  /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
+  final TextInputType keyboardTypeFullName;
+
+  /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
+  final String hintTextFullName;
+
+  /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
+  final String? errorTextFullName;
+
+  /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
+  final List<TextInputFormatter>? inputFormattersFullName;
+
+  /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
+  final Function()? onTapFullName;
+
+  /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
+  final TextEditingController? controllerFullName;
 
   const LoginTemplateSignUpPage({
     Key? key,
