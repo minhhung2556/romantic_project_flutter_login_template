@@ -2,27 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_template/commons.dart';
 
+/// LoginTemplateConfirmCodePage is used to show a page, lets users can input the OTP code sent to their email/phone number.
 class LoginTemplateConfirmCodePage extends StatelessWidget {
+  /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
+
+  /// Your product logo
   final Widget logo;
+
+  /// The message is used to explain to users.
   final String textMessage;
 
+  /// The text of button to go to next step.
   final String buttonTextNext;
+
+  /// The action of button to go to next step.
   final Function() onPressedNext;
 
+  /// The message is used to explain to users about resending the OTP code.
   final String textMessageResend;
+
+  /// The text of button to resend the OTP code.
   final String buttonTextResend;
+
+  /// The action of button to resend the OTP code.
   final Function() onPressedResend;
 
-  /// code textField
+  /// Use for the TextField lets the users input the OTP code. See also [LoginTemplateTextField]
   final TextInputAction textInputActionCode;
+
+  /// Use for the TextField lets the users input the OTP code. See also [LoginTemplateTextField]
   final TextInputType keyboardTypeCode;
+
+  /// Use for the TextField lets the users input the OTP code. See also [LoginTemplateTextField]
   final String hintTextCode;
+
+  /// Use for the TextField lets the users input the OTP code. See also [LoginTemplateTextField]
   final String? errorTextCode;
+
+  /// Use for the TextField lets the users input the OTP code. See also [LoginTemplateTextField]
   final List<TextInputFormatter>? inputFormattersCode;
+
+  /// Use for the TextField lets the users input the OTP code. See also [LoginTemplateTextField]
   final Function()? onTapCode;
+
+  /// Use for the TextField lets the users input the OTP code. See also [LoginTemplateTextField]
   final TextEditingController? controllerCode;
 
+  /// Constructor
   const LoginTemplateConfirmCodePage({
     Key? key,
     required this.logo,
