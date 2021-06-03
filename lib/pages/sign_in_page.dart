@@ -1,37 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_template/commons.dart';
+import 'package:flutter_login_template/flutter_login_template.dart';
 
+/// LoginTemplateSignInPage is used for sign in page.
 class LoginTemplateSignInPage extends StatelessWidget {
+  /// See [LoginTemplateStyle]
   final LoginTemplateStyle style;
+
+  /// The action of SignIn button.
   final Function() onPressedSignIn;
+
+  /// The action of ForgotPassword button to navigate to [LoginTemplateForgotPasswordPage]
   final Function() onPressedForgot;
+
+  /// The action of SignUp button to navigate to [LoginTemplateSignUpPage]
   final Function() onPressedSignUp;
+
+  /// Your product logo
   final Widget logo;
 
-  /// user textField
+  /// The text of SignIn button.
+  final String buttonTextSignIn;
+
+  /// The text of ForgotPassword button.
+  final String buttonTextForgotPassword;
+
+  /// The text of SignUp button.
+  final String buttonTextSignUp;
+
+  /// List of Social button lets the users could sign in/up by their social account (Ex: Facebook, AppleId,...).
+  final List<LoginTemplateSocialButton>? socialButtons;
+
+  /// See [LoginTemplateTerm]
+  final LoginTemplateTerm? term;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final TextInputAction textInputActionUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final TextInputType keyboardTypeUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final String hintTextUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final String? errorTextUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final List<TextInputFormatter>? inputFormattersUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final Function()? onTapUser;
+
+  /// Use for the TextField lets the users input their email or phone number. See also [LoginTemplateTextField]
   final TextEditingController? controllerUser;
 
-  /// password textField
+  /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
   final TextInputAction textInputActionPassword;
-  final TextInputType keyboardTypePassword;
-  final String hintTextPassword;
-  final String? errorTextPassword;
-  final List<TextInputFormatter>? inputFormattersPassword;
-  final Function()? onTapPassword;
-  final TextEditingController? controllerPassword;
 
-  final String buttonTextSignIn;
-  final String buttonTextForgotPassword;
-  final String buttonTextSignUp;
-  final List<LoginTemplateSocialButton>? socialButtons;
-  final LoginTemplateTerm? term;
+  /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
+  final TextInputType keyboardTypePassword;
+
+  /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
+  final String hintTextPassword;
+
+  /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
+  final String? errorTextPassword;
+
+  /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
+  final List<TextInputFormatter>? inputFormattersPassword;
+
+  /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
+  final Function()? onTapPassword;
+
+  /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
+  final TextEditingController? controllerPassword;
 
   const LoginTemplateSignInPage({
     Key? key,
