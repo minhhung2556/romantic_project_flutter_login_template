@@ -2,7 +2,7 @@
 
 A Flutter package to create set of pages are used for sign in/up workflow. It will be useful for your awesome app.
 
-![Imgur](https://imgur.com/download/rB0hQ3g)
+![Demo](./demo.gif)
 
 ## Example
 
