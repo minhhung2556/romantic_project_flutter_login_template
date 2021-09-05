@@ -295,7 +295,7 @@ class LoginTemplateStyle {
   static final LoginTemplateStyle defaultTemplate = _resolve(null);
 
   /// Create your own style that only change some child styles.
-  static LoginTemplateStyle only(
+  static LoginTemplateStyle only({
     EdgeInsets? screenPadding,
     double? verticalSpacingBetweenComponents,
     double? verticalSpacingBetweenSubComponents,
@@ -316,7 +316,7 @@ class LoginTemplateStyle {
     ButtonStyle? buttonStyle,
     ButtonStyle? socialButtonStyle,
     EdgeInsets? textFieldPadding,
-  ) {
+  }) {
     return defaultTemplate.copyWith(
       screenPadding: screenPadding,
       verticalSpacingBetweenComponents: verticalSpacingBetweenComponents,
