@@ -645,7 +645,7 @@ class LoginTemplateTextField extends StatelessWidget {
             ),
           ),
         ),
-        if (errorText != null)
+        if (errorText?.isNotEmpty == true)
           Padding(
             padding: EdgeInsets.only(
               top: style.verticalSpacingBetweenSubComponents,
