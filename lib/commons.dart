@@ -595,6 +595,9 @@ class LoginTemplateTextField extends StatelessWidget {
   /// See controller in [TextEditingController]
   final TextEditingController? controller;
 
+  /// See enabled in [TextField]
+  final bool? enabled;
+
   const LoginTemplateTextField({
     Key? key,
     required this.style,
@@ -605,6 +608,7 @@ class LoginTemplateTextField extends StatelessWidget {
     this.inputFormatters,
     this.onTap,
     this.controller,
+    this.enabled,
   }) : super(key: key);
 
   @override
@@ -643,6 +647,7 @@ class LoginTemplateTextField extends StatelessWidget {
               hintMaxLines: 1,
               border: InputBorder.none,
             ),
+            enabled: enabled,
           ),
         ),
         if (errorText?.isNotEmpty == true)
