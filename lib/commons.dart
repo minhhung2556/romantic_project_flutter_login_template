@@ -598,6 +598,9 @@ class LoginTemplateTextField extends StatelessWidget {
   /// See enabled in [TextField]
   final bool? enabled;
 
+  /// See maxLines in [TextField]
+  final int maxLines;
+
   const LoginTemplateTextField({
     Key? key,
     required this.style,
@@ -609,6 +612,7 @@ class LoginTemplateTextField extends StatelessWidget {
     this.onTap,
     this.controller,
     this.enabled,
+    this.maxLines: 1,
   }) : super(key: key);
 
   @override
@@ -634,7 +638,7 @@ class LoginTemplateTextField extends StatelessWidget {
             textAlign: TextAlign.left,
             textInputAction: textInputAction,
             keyboardType: keyboardType,
-            maxLines: 1,
+            maxLines: maxLines,
             style: style.textFieldTextStyle,
             obscureText: keyboardType == TextInputType.visiblePassword,
             cursorColor: style.primary,
@@ -644,7 +648,7 @@ class LoginTemplateTextField extends StatelessWidget {
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: style.textFieldHintTextStyle,
-              hintMaxLines: 1,
+              hintMaxLines: maxLines,
               border: InputBorder.none,
             ),
             enabled: enabled,
