@@ -1,3 +1,12 @@
+## [1.0.1+3] - 24/04/2022
+
+* Migrate to flutter stable.
+* add option passwordVisible.
+* Minor bug fixed: only show errorText if not empty. 
+* add option TextField enabled.
+* add option maxLines.
+* add option signInSectionVisible.
+
 ## [1.0.0+2] - 05/09/2021
 
 * Fix method LoginTemplateStyle.only.
