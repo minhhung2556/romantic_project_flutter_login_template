@@ -77,6 +77,8 @@ class LoginTemplateSignInPage extends StatelessWidget {
   /// Use for the TextField lets the users input their password. See also [LoginTemplateTextField]
   final TextEditingController? controllerPassword;
 
+  final bool passwordVisible;
+
   const LoginTemplateSignInPage({
     Key? key,
     required this.logo,
@@ -103,6 +105,7 @@ class LoginTemplateSignInPage extends StatelessWidget {
     this.buttonTextSignUp: 'Sign Up',
     this.socialButtons,
     this.term,
+    this.passwordVisible: true,
   }) : super(key: key);
 
   @override
@@ -135,20 +138,21 @@ class LoginTemplateSignInPage extends StatelessWidget {
               inputFormatters: inputFormattersUser,
             ),
           ),
-          Padding(
-            padding:
-                EdgeInsets.only(top: style.verticalSpacingBetweenComponents),
-            child: LoginTemplateTextField(
-              style: style,
-              textInputAction: textInputActionPassword,
-              keyboardType: keyboardTypePassword,
-              hintText: hintTextPassword,
-              controller: controllerPassword,
-              onTap: onTapPassword,
-              errorText: errorTextPassword,
-              inputFormatters: inputFormattersPassword,
+          if (passwordVisible)
+            Padding(
+              padding:
+                  EdgeInsets.only(top: style.verticalSpacingBetweenComponents),
+              child: LoginTemplateTextField(
+                style: style,
+                textInputAction: textInputActionPassword,
+                keyboardType: keyboardTypePassword,
+                hintText: hintTextPassword,
+                controller: controllerPassword,
+                onTap: onTapPassword,
+                errorText: errorTextPassword,
+                inputFormatters: inputFormattersPassword,
+              ),
             ),
-          ),
           Padding(
             padding:
                 EdgeInsets.only(top: style.verticalSpacingBetweenComponents),
@@ -165,15 +169,17 @@ class LoginTemplateSignInPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                LoginTemplateInlineButton(
-                  text: buttonTextForgotPassword,
-                  onPressed: onPressedForgot,
-                  style: style,
-                ),
-                Text(
-                  ' | ',
-                  style: style.messageTextStyle,
-                ),
+                if (passwordVisible)
+                  LoginTemplateInlineButton(
+                    text: buttonTextForgotPassword,
+                    onPressed: onPressedForgot,
+                    style: style,
+                  ),
+                if (passwordVisible)
+                  Text(
+                    ' | ',
+                    style: style.messageTextStyle,
+                  ),
                 LoginTemplateInlineButton(
                   text: buttonTextSignUp,
                   onPressed: onPressedSignUp,

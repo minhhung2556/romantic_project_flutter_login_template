@@ -71,6 +71,8 @@ class LoginTemplateSignUpPage extends StatelessWidget {
   /// Use for the TextField lets the users input their full name. See also [LoginTemplateTextField]
   final TextEditingController? controllerFullName;
 
+  final bool signInSectionVisible;
+
   const LoginTemplateSignUpPage({
     Key? key,
     required this.logo,
@@ -95,6 +97,7 @@ class LoginTemplateSignUpPage extends StatelessWidget {
     this.buttonTextSignUp: 'Create Account',
     this.term,
     this.textMessageAlreadyHaveAccount: 'Already have an account? ',
+    this.signInSectionVisible: true,
   }) : super(key: key);
 
   @override
@@ -150,25 +153,26 @@ class LoginTemplateSignUpPage extends StatelessWidget {
               style: style,
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: style.verticalSpacingBetweenGroup,
+          if (signInSectionVisible)
+            Padding(
+              padding: EdgeInsets.only(
+                top: style.verticalSpacingBetweenGroup,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    textMessageAlreadyHaveAccount,
+                    style: style.messageTextStyle,
+                  ),
+                  LoginTemplateInlineButton(
+                    text: buttonTextSignIn,
+                    onPressed: onPressedSignIn,
+                    style: style,
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  textMessageAlreadyHaveAccount,
-                  style: style.messageTextStyle,
-                ),
-                LoginTemplateInlineButton(
-                  text: buttonTextSignIn,
-                  onPressed: onPressedSignIn,
-                  style: style,
-                ),
-              ],
-            ),
-          ),
           if (term != null) term!,
         ],
       ),
