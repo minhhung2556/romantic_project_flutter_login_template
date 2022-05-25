@@ -1,3 +1,7 @@
+## [1.1.0] - 25/05/2022
+
+* Migrate to flutter 3.0.1.
+
 ## [1.0.1+3] - 24/04/2022
 
 * Migrate to flutter stable.

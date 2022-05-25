@@ -151,8 +151,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Example',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        accentColor: Colors.orangeAccent,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+            .copyWith(secondary: Colors.orangeAccent),
       ),
       home: Scaffold(
         appBar: AppBar(
