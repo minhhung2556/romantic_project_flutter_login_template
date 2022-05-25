@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_template/commons.dart';
-import 'package:flutter_login_template/flutter_login_template.dart';
 
 /// LoginTemplateSignInPage is used for sign in page.
 class LoginTemplateSignInPage extends StatelessWidget {

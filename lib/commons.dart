@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_login_template/flutter_login_template.dart';
-import 'package:flutter_login_template/pages/sign_in_page.dart';
 
 const _kColorPrimary = Color(0xffffab00);
 const _kColorPrimaryDark = Color(0xffc67c00);
